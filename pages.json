@@ -1,0 +1,51 @@
+{
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/register/register",
+      "style": {
+        "navigationBarTitleText": "修改密码"
+      }
+    },
+
+    {
+      "path": "pages/arriveGoods/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "到货列表"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#ffffff",
+    "app-plus": {
+      "background": "#efeff4"
+    }
+  },
+  "condition": {
+    "current": 0,
+    "list": [
+      {
+        "name": "详情页",
+        "path": "pages/home/home",
+        "query": "id=80"
+      }
+    ]
+  }
+}
