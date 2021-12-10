@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { toPage } from '@/common/utils'
 export default {
   data() {
     return {
@@ -119,24 +120,17 @@ export default {
     onClick(item, index) {
       //todo 条件判断
       console.log(item)
-      this.toPage(item.path)
+      toPage(item.path)
     },
     actionSheet() {
       // 打开action sheet
       this.sheetVisible = true;
     },
-    toPage(url) {
-      uni.navigateTo({
-        url
-      });
-    },
     onEdit() {
-      let url = '/pages/register/register'
-      this.toPage(url)
+      toPage('/pages/register/register')
     },
     onLoginOut() {
-      let url = '/pages/login/index'
-      this.toPage(url)
+      toPage('/pages/login/index')
     },
     onCancel() {
     },

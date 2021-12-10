@@ -27,6 +27,13 @@
         "enablePullDownRefresh": true,
         "navigationBarTitleText": "到货列表"
       }
+    },
+    {
+      "path": "pages/arriveGoods/waitNoticeDetail",
+      "style": {
+        "navigationBarTitleText": "通知质检",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {

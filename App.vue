@@ -16,8 +16,6 @@ export default {
 <style lang="scss">
 @import 'colorui/main.css';
 @import 'colorui/icon.css';
-@import './common/uni.css';
-
 // 设置整个项目的背景色
 /* ==================
 	        初始化
@@ -27,5 +25,35 @@ page {
   font-size: 30rpx;
   color: #272e2d;
   font-family: Helvetica Neue, Helvetica, sans-serif;
+}
+/*自定义样式*/
+/* reg	  */
+uni-checkbox-group uni-label {
+  width: 33% !important;
+  display: inline-flex;
+  margin-bottom: 20rpx;
+}
+/*checkbox 选项框大小  */
+uni-checkbox .uni-checkbox-input {
+  width: 35rpx !important;
+  height: 35rpx !important;
+  border-radius: 50%;
+}
+/*checkbox选中后样式  */
+uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
+  background: #3d7eff;
+  border-color: #3d7eff;
+}
+/*checkbox选中后图标样式  */
+uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 18rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-70%, -50%) scale(1);
+  -webkit-transform: translate(-70%, -50%) scale(1);
 }
 </style>
