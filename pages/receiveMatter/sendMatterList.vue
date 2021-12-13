@@ -1,35 +1,36 @@
 <template>
   <view>
-    <search :placeholder="placeholder" @searchValue="onSearch"></search>
-    <data-list
-      :multipleTitle="multipleTitle"
-      :dataList="list"
-      @toDetail="toWaitGetGoodsDetail"
-    ></data-list>
-    <bottom-button-day @onChangeDay="onChangeDay"></bottom-button-day>
+    <view
+      class="list-item"
+      :style="{ '--color': index === 0 ? '#00DB00' : 'red' }"
+      v-for="(item, index) in list"
+      @click="toDetail(item)"
+      :key="index"
+    >
+      <view class="text-box">
+        <text>{{ item.home }}</text>
+        <text>{{ item.name }}</text>
+        <text>{{ item.age }}</text>
+      </view>
+    </view>
+    <view class="submit-box">
+      <button type="primary" @click="settlement">提交</button>
+    </view>
   </view>
 </template>
 
 <script>
-import search from '@/components/search/search.vue'
-import dataList from '@/components/dataList/data-list.vue'
-import bottomButtonDay from '@/components/button/bottom-button-day.vue'
 export default {
   components: {
-    search,
-    dataList,
-    bottomButtonDay
   },
   data() {
     return {
-      value: '',
-      placeholder: '请输入供应商/制单人搜索',
-      multipleTitle: true,
-      path: '/pages/arriveGoods/waitInStore/waitInStoreDetail',
+      hasTitle: true,
+      path: '/pages/receiveMatter/beginSendMatter',
       list: [
         {
           id: 0,
-          name: '制单人:王五',
+          name: '111制单人:王五',
           home: '到货时间:2012-12-12',
           level: '制单时间:2012-12-12',
           age: '顺达广州机械公司',
@@ -61,38 +62,44 @@ export default {
     }
   },
   computed: {
+
   },
   methods: {
-    onSearch(val) {
+    searchValue(val) {
       // todo 接口 val=''代表删除
       console.log(val + '22222')
     },
-    toWaitGetGoodsDetail(val) {
-      //todo 传参 
-      console.log(val)
+    settlement() {
+
+    },
+    toDetail(item) {
       this.toPage(this.path)
     },
-    onChangeDay(val) {
-      //todo 掉接口,代入val
-      console.log(val)
-    },
-    onChange() { }
 
   }
 }
 </script>
 <style lang="scss">
-.bt-box {
-  width: 100%;
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  .bt {
-    width: 50%;
+.list-item {
+  cursor: pointer;
+  background-color: #fff;
+  margin: 10rpx;
+  padding-left: 40rpx;
+  border-left: 11rpx solid var(--color);
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 190rpx;
+    text {
+      padding: 10rpx 0;
+    }
   }
 }
-.u--input-style {
-  width: 50%;
+.submit-box {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 </style>
 <style lang="scss" scoped>

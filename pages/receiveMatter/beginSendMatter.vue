@@ -1,13 +1,13 @@
 <template>
   <view>
-    <scan-input v-if="tabCur !== 2"></scan-input>
+    <scan-input></scan-input>
     <data-list
       :isCheckbox="isCheckbox"
       :dataList="goodList"
       @toDetail="toWaitNoticeDetail"
     ></data-list>
-    <view class="submit-box" v-if="tabCur !== 2">
-      <button type="primary" @click="settlement">提交</button>
+    <view class="submit-box">
+      <button type="primary" @click="settlement">确定</button>
     </view>
   </view>
 </template>

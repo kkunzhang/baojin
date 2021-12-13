@@ -1,8 +1,12 @@
 <template>
   <view>
     <view class="bt-box">
-      <button class="bt" plain="true" type="primary" @click="onClick(1)">保持记录</button>
-      <button class="bt" type="primary" @click="onClick(2)">提交</button>
+      <button class="bt" plain="true" type="primary" @click="onClick(1)">
+        <slot name="one"> 保持记录 </slot>
+      </button>
+      <button class="bt" type="primary" @click="onClick(2)">
+        <slot name="two"> 提交 </slot>
+      </button>
     </view>
   </view>
 </template>

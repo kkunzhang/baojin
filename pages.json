@@ -28,14 +28,14 @@
       }
     },
     {
-      "path": "pages/arriveGoods/waitNoticeDetail",
+      "path": "pages/arriveGoods/waitNotified/waitNoticeDetail",
       "style": {
         "navigationBarTitleText": "通知质检",
         "enablePullDownRefresh": false
       }
     },
     {
-      "path": "pages/arriveGoods/waitGetGoodsDetail",
+      "path": "pages/arriveGoods/waitGetGoods/waitGetGoodsDetail",
       "style": {
         "navigationBarTitleText": "收货详情",
         "enablePullDownRefresh": false
@@ -46,6 +46,62 @@
       "style": {
         "navigationBarTitleText": "入库详情",
         "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/produceInWarehouse/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "生产入库"
+      }
+    },
+    {
+      "path": "pages/produceInWarehouse/notFinished",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "开始入库"
+      }
+    },
+    {
+      "path": "pages/produceInWarehouse/finished",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "入库详情"
+      }
+    },
+    {
+      "path": "pages/returnMatter/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "退料"
+      }
+    },
+    {
+      "path": "pages/returnMatter/notFinished",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "退料详情"
+      }
+    },
+    {
+      "path": "pages/receiveMatter/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "领料"
+      }
+    },
+    {
+      "path": "pages/receiveMatter/sendMatterList",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "发料清单"
+      }
+    },
+    {
+      "path": "pages/receiveMatter/beginSendMatter",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "开始发料"
       }
     }
   ],

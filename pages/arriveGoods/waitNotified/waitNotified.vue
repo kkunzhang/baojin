@@ -1,12 +1,8 @@
 <template>
   <view>
-    <search :placeholder="placeholder" @searchValue="onSearch"></search>
-    <data-list
-      :multipleTitle="multipleTitle"
-      :dataList="list"
-      @toDetail="toWaitGetGoodsDetail"
-    ></data-list>
-    <bottom-button-day @onChangeDay="onChangeDay"></bottom-button-day>
+    <search :placeholder="placeholder" @searchValue="searchValue"></search>
+    <data-list :hasTitle="hasTitle" :dataList="list" @toDetail="toWaitNoticeDetail"></data-list>
+    <bottomButtonDay @onChangeDay="onChangeDay"></bottomButtonDay>
   </view>
 </template>
 
@@ -22,10 +18,9 @@ export default {
   },
   data() {
     return {
-      value: '',
       placeholder: '请输入供应商/制单人搜索',
-      multipleTitle: true,
-      path: '/pages/arriveGoods/waitInStore/waitInStoreDetail',
+      hasTitle: true,
+      path: '/pages/arriveGoods/waitNotified/waitNoticeDetail',
       list: [
         {
           id: 0,
@@ -63,11 +58,11 @@ export default {
   computed: {
   },
   methods: {
-    onSearch(val) {
+    searchValue(val) {
       // todo 接口 val=''代表删除
       console.log(val + '22222')
     },
-    toWaitGetGoodsDetail(val) {
+    toWaitNoticeDetail(val) {
       //todo 传参 
       console.log(val)
       this.toPage(this.path)
@@ -75,8 +70,7 @@ export default {
     onChangeDay(val) {
       //todo 掉接口,代入val
       console.log(val)
-    },
-    onChange() { }
+    }
 
   }
 }
@@ -90,9 +84,6 @@ export default {
   .bt {
     width: 50%;
   }
-}
-.u--input-style {
-  width: 50%;
 }
 </style>
 <style lang="scss" scoped>

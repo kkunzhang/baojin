@@ -6,7 +6,7 @@
       :dataList="list"
       @toDetail="toWaitGetGoodsDetail"
     ></data-list>
-    <bottom-button-day @onChangeDay="onChangeDay"></bottom-button-day>
+    <bottomButtonDay @onChangeDay="onChangeDay"></bottomButtonDay>
   </view>
 </template>
 
@@ -22,10 +22,9 @@ export default {
   },
   data() {
     return {
-      value: '',
       placeholder: '请输入供应商/制单人搜索',
       multipleTitle: true,
-      path: '/pages/arriveGoods/waitInStore/waitInStoreDetail',
+      path: '/pages/arriveGoods/waitGetGoods/waitGetGoodsDetail',
       list: [
         {
           id: 0,
@@ -75,8 +74,7 @@ export default {
     onChangeDay(val) {
       //todo 掉接口,代入val
       console.log(val)
-    },
-    onChange() { }
+    }
 
   }
 }
@@ -90,9 +88,6 @@ export default {
   .bt {
     width: 50%;
   }
-}
-.u--input-style {
-  width: 50%;
 }
 </style>
 <style lang="scss" scoped>

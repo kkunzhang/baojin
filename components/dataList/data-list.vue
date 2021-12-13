@@ -2,7 +2,7 @@
   <view>
     <view class="main">
       <!-- 单标题-->
-      <view v-if="hasTitle||multipleTitle">
+      <view v-if="hasTitle || multipleTitle">
         <view
           class="list-item"
           v-for="(item, index) in dataList"
@@ -23,16 +23,13 @@
           </view>
         </view>
       </view>
-      
+
       <!-- 选中框无标题 -->
       <view v-if="isCheckbox">
         <view class="list-item2" v-for="(item, index) in dataList" :key="index">
           <view
             ><view class="select-item">
-              <checkbox-group
-                @change="changeItem(item)"
-                checked
-                class="checkbox"
+              <checkbox-group @change="changeItem(item)" checked class="checkbox"
                 ><checkbox :value="item.unitPrice" :checked="item.checked"
               /></checkbox-group> </view
           ></view>
@@ -49,7 +46,6 @@
 </template>
 
 <script>
-import { toPage } from "@/common/utils";
 export default {
   components: {},
   props: {

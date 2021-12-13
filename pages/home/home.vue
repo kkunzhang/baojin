@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { toPage } from '@/common/utils'
 export default {
   data() {
     return {
@@ -56,19 +55,19 @@ export default {
         title: '生产入库',
         name: 'cuIcon-emoji',
         color: '#f37b1d',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/produceInWarehouse/index'
       },
       {
         title: '退料',
         name: 'cuIcon-emoji',
         color: '#fbbd08',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/returnMatter/index'
       },
       {
         title: '领料',
         name: 'cuIcon-emoji',
         color: '#8dc63f',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/receiveMatter/index'
       },
       {
         title: '成品发货',
@@ -120,17 +119,17 @@ export default {
     onClick(item, index) {
       //todo 条件判断
       console.log(item)
-      toPage(item.path)
+      this.toPage(item.path)
     },
     actionSheet() {
       // 打开action sheet
       this.sheetVisible = true;
     },
     onEdit() {
-      toPage('/pages/register/register')
+      this.toPage('/pages/register/register')
     },
     onLoginOut() {
-      toPage('/pages/login/index')
+      this.toPage('/pages/login/index')
     },
     onCancel() {
     },
@@ -184,9 +183,9 @@ page {
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgb(0,0, 0 / 15%) 0rpx 4rpx 8rpx 0rpx;
+  box-shadow: #000000 0rpx 4rpx 8rpx 0rpx;
   border-style: solid;
-  border-color: rgb(239, 239, 239);
+  border-color: #efefef;
   .icon-size {
     font-size: 100rpx !important;
     padding-bottom: 40rpx;

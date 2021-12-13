@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import waitNotified from '@/pages/arriveGoods/waitNotified.vue'
-import waitGetGoods from '@/pages/arriveGoods/waitGetGoods.vue'
+import waitNotified from '@/pages/arriveGoods/waitNotified/waitNotified.vue'
+import waitGetGoods from '@/pages/arriveGoods/waitGetGoods/waitGetGoods.vue'
 import waitInStore from '@/pages/arriveGoods/waitInStore/waitInStore.vue'
 import segmented from '@/components/segmented/segmented.vue'
 export default {
