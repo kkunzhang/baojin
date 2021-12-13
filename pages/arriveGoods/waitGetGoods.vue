@@ -1,82 +1,94 @@
 <template>
-  <div>
-    vue使用watch监听实现类似百度搜索功能
-    <div>
-      <input type="text" class="search" placeholder="搜索" v-model.trim="keyword" />
-    </div>
-    <div v-show="keyword">
-      <ul>
-        <li v-for="item in cityList" :key="item.id">
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <view>
+    <search :placeholder="placeholder" @searchValue="onSearch"></search>
+    <data-list :multipleTitle="multipleTitle" :dataList="list" @toDetail="toWaitGetGoodsDetail"></data-list>
+    <bottomButtonDay @onChangeDay="onChangeDay"></bottomButtonDay>
+  </view>
 </template>
 
 <script>
-// 节流函数
-const delay = (function () {
-  let timer = 0;
-  return function (callback, ms) {
-    clearTimeout(timer);
-    timer = setTimeout(callback.ms)
-  }
-})()
+import search from '@/components/search/search.vue'
+import dataList from '@/components/dataList/data-list.vue'
+import bottomButtonDay from '@/components/button/bottom-button-day.vue'
+import { toPage } from '@/common/utils'
 export default {
-  name: "cinemaTwo",
+  components: {
+    search,
+    dataList,
+    bottomButtonDay
+  },
   data() {
     return {
-      keyword: '',
-      cityList: [],
-      timer: null,
-      jsonData: [{
-        'id': 1,
-        'name': '北京'
-      },
-      {
-        'id': 2,
-        'name': '上海'
-      },
-      {
-        'id': 3,
-        'name': '广州'
-      },
-      {
-        'id': 4,
-        'name': '深圳'
-      },]
+      placeholder: '请输入供应商/制单人搜索',
+      multipleTitle: true,
+      path: '/pages/arriveGoods/waitGetGoodsDetail',
+      list: [
+        {
+          id: 0,
+          name: '制单人:王五',
+          home: '到货时间:2012-12-12',
+          level: '制单时间:2012-12-12',
+          age: '顺达广州机械公司',
+          subtotal: '23',
+          numberBox: '到货单号:DH12312312312312312',
+          checked: false
+        },
+        {
+          id: 1,
+          name: '制单人:王五',
+          home: '到货时间:2012-12-12',
+          level: '制单时间:2012-12-12',
+          age: '顺达广州机械公司',
+          subtotal: '23',
+          numberBox: '到货单号:DH12312312312312312',
+          checked: false
+        }, {
+          id: 2,
+          name: '制单人:王五',
+          home: '到货时间:2012-12-12',
+          level: '制单时间:2012-12-12',
+          age: '顺达广州机械公司',
+          subtotal: '23',
+          numberBox: '到货单号:DH12312312312312312',
+          checked: false
+        },
+
+      ]
     }
   },
-  watch: {
-    keyword() {
-      //函数节流
-      console.log(this.timer)
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
-      //删除文字  清零
-      if (!this.keyword) {
-        this.cityList = []
-        return
-      }
-      this.timer = setTimeout(() => {
-        const result = []
-        this.jsonData.forEach(val => {
-          if (val.name.indexOf(this.keyword) > -1) {
-            result.push(val.name)
-          }
-        });
-        this.cityList = result
-        console.log(this.cityList)
-      }, 100)
-    }
+  computed: {
   },
   methods: {
+    onSearch(val) {
+      // todo 接口 val=''代表删除
+      console.log(val + '22222')
+    },
+    toWaitGetGoodsDetail(val) {
+      //todo 传参 
+      console.log(val)
+      toPage(this.path)
+    },
+    onChangeDay(val) {
+      //todo 掉接口,代入val
+      console.log(val)
+    }
 
-  },
+  }
 }
 </script>
-
+<style lang="scss">
+.bt-box {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  .bt {
+    width: 50%;
+  }
+}
+</style>
 <style lang="scss" scoped>
+page {
+  background-color: rgb(247, 247, 247);
+}
 </style>

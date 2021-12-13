@@ -184,7 +184,7 @@ page {
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgb(0 0 0 / 15%) 0rpx 4rpx 8rpx 0rpx;
+  box-shadow: rgb(0,0, 0 / 15%) 0rpx 4rpx 8rpx 0rpx;
   border-style: solid;
   border-color: rgb(239, 239, 239);
   .icon-size {

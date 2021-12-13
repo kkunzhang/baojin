@@ -106,32 +106,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.list-item {
-  cursor: pointer;
-  background-color: #fff;
-  margin: 10rpx;
-  border-radius: 10rpx;
-  padding-left: 40rpx;
-  .text-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .select-item {
-      display: flex;
-      flex-direction: row;
-      padding-bottom: 10rpx;
-      align-items: baseline;
-      text {
-        padding: 10rpx 0;
-      }
-    }
-  }
-  .title {
-    height: 110rpx;
-    border-bottom: 2rpx #d6d6d6 dashed;
-    line-height: 110rpx;
-  }
-}
+
 .submit-box {
   width: 100%;
   display: flex;

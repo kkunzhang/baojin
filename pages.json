@@ -20,7 +20,6 @@
         "navigationBarTitleText": "修改密码"
       }
     },
-
     {
       "path": "pages/arriveGoods/index",
       "style": {
@@ -34,6 +33,20 @@
         "navigationBarTitleText": "通知质检",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/arriveGoods/waitGetGoodsDetail",
+      "style": {
+        "navigationBarTitleText": "收货详情",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/arriveGoods/waitInStore/waitInStoreDetail",
+      "style": {
+        "navigationBarTitleText": "入库详情",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
@@ -42,7 +55,10 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#ffffff",
     "app-plus": {
-      "background": "#efeff4"
+      "titleNView": {
+        "backgroundColor": "#ffffff",
+        "titleColor": "black"
+      }
     }
   },
   "condition": {

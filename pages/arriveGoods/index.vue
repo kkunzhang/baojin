@@ -14,7 +14,7 @@
     </view>
     <!-- 待入库 -->
     <view v-show="tabCur === 2">
-      <wait-in-storage></wait-in-storage>
+      <wait-in-store></wait-in-store>
     </view>
   </view>
 </template>
@@ -22,14 +22,14 @@
 <script>
 import waitNotified from '@/pages/arriveGoods/waitNotified.vue'
 import waitGetGoods from '@/pages/arriveGoods/waitGetGoods.vue'
-import waitInStorage from '@/pages/arriveGoods/waitInStorage.vue'
+import waitInStore from '@/pages/arriveGoods/waitInStore/waitInStore.vue'
 import segmented from '@/components/segmented/segmented.vue'
 export default {
   components: {
     waitNotified,
     segmented,
     waitGetGoods,
-    waitInStorage,
+    waitInStore,
   },
   data() {
     return {
