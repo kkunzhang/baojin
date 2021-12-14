@@ -159,6 +159,13 @@
         "enablePullDownRefresh": true,
         "navigationBarTitleText": "盘点"
       }
+    },
+    {
+      "path": "pages/splitWrap/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "拆分合包"
+      }
     }
   ],
   "globalStyle": {

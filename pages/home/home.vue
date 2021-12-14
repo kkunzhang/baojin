@@ -91,7 +91,7 @@ export default {
         title: '拆合包',
         name: 'cuIcon-emoji',
         color: '#6739b6',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/splitWrap/index'
       },
       {
         title: '异常品处理',
