@@ -73,19 +73,19 @@ export default {
         title: '成品发货',
         name: 'cuIcon-emoji',
         color: '#39b54a',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/sendOutGoods/index'
       },
       {
         title: '移库',
         name: 'cuIcon-emoji',
         color: '#1cbbb4',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/moveStorehouse/index'
       },
       {
         title: '盘库',
         name: 'cuIcon-emoji',
         color: '#0081ff',
-        path: '/pages/arriveGoods/index'
+        path: '/pages/selectStorehouse/index'
       },
       {
         title: '拆合包',

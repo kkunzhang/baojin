@@ -103,6 +103,62 @@
         "enablePullDownRefresh": true,
         "navigationBarTitleText": "开始发料"
       }
+    },
+    {
+      "path": "pages/sendOutGoods/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "发货列表"
+      }
+    },
+    {
+      "path": "pages/sendOutGoods/sendMatterList",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "发货详情"
+      }
+    },
+    {
+      "path": "pages/sendOutGoods/beginSendMatter",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "开始发货"
+      }
+    },
+    {
+      "path": "pages/sendOutGoods/fillMatter",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "补料"
+      }
+    },
+    {
+      "path": "pages/moveStorehouse/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "移库"
+      }
+    },
+    {
+      "path": "pages/selectStorehouse/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "盘库"
+      }
+    },
+    {
+      "path": "pages/selectStorehouse/selectList",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "盘库清单"
+      }
+    },
+    {
+      "path": "pages/selectStorehouse/beginSelect",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "盘点"
+      }
     }
   ],
   "globalStyle": {
