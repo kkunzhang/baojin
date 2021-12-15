@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="nav-set">
-      <view class="nav-set-left" @click="onReturn">
+      <view class="nav-set-left">
         <uni-text class="cuIcon-peoplefill icon-user">
           <span class="user-font">管理员</span></uni-text
         >
@@ -13,26 +13,11 @@
     </view>
     <mt-actionsheet :actions="actions" v-model="sheetVisible"> </mt-actionsheet>
 
-    <view v-if="isShow" class="grid col-3 padding-sm">
+    <view class="grid col-3 padding-sm">
       <view
         class="padding-sm"
         @click="onClick(item, index)"
         v-for="(item, index) in ColorList"
-        :key="index"
-      >
-        <view class="box-outside">
-          <uni-view class="icon-size" :style="{ color: item.color }">
-            <uni-text :class="item.name"></uni-text
-          ></uni-view>
-          <view class="text-lg box-title">{{ item.title }}</view>
-        </view>
-      </view>
-    </view>
-    <view v-if="!isShow" class="grid col-3 padding-sm">
-      <view
-        class="padding-sm"
-        @click="onClick(item, index)"
-        v-for="(item, index) in ColorList2"
         :key="index"
       >
         <view class="box-outside">
@@ -128,40 +113,13 @@ export default {
       },
 
       ],
-      ColorList2: [{
-        title: '不良品入库',
-        name: 'cuIcon-emoji',
-        color: '#e54d42',
-        path: '/pages/arriveGoods/index'
-      },
-      {
-        title: '报废',
-        name: 'cuIcon-emoji',
-        color: '#f37b1d',
-        path: '/pages/produceInWarehouse/index'
-      },
-      {
-        title: '不良品移库',
-        name: 'cuIcon-emoji',
-        color: '#fbbd08',
-        path: '/pages/returnMatter/index'
-      },
-      ],
-      isShow: true
     };
   },
   methods: {
     onClick(item, index) {
       //todo 条件判断
-      if (item.title == '异常品处理') {
-        this.isShow = !this.isShow
-      } else {
-        this.toPage(item.path)
-
-      }
-    },
-    onReturn() {
-      this.isShow = !this.isShow
+      console.log(item)
+      this.toPage(item.path)
     },
     actionSheet() {
       // 打开action sheet

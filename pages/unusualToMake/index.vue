@@ -1,41 +1,70 @@
 <template>
   <view>
-    <view v-if="!tag">
-      <!-- 分页器 -->
-      <segmented @tabCur="goTabCur" :itemsTab="itemsTab"></segmented>
+    <!-- 分页器 -->
+    <segmented @tabCur="goTabCur" :itemsTab="itemsTab"></segmented>
 
-      <!------------------------ 内容开始-------------------------- -->
-      <!-- 待发料 -->
-      <view v-show="tabCur === 0">
-        <split @inputData="inputData" @checkedId="checkedId"></split>
-      </view>
-      <!-- 已发料 -->
-      <view v-show="tabCur === 1">
-        <finished></finished>
+    <!------------------------ 内容开始-------------------------- -->
+    <!-- 未完成 -->
+    <view v-show="tabCur === 0"
+      ><view>
+        <view
+          class="list-item"
+          v-for="(item, index) in dataList"
+          @click="toDetail(item)"
+          :key="index"
+        >
+          <view class="text-box">
+            <text>{{ item.home }}</text>
+            <text>{{ item.name }}</text>
+            <text>{{ item.level }}</text>
+            <text>{{ item.age }}</text>
+          </view>
+        </view>
       </view>
     </view>
-    <view v-else>
-      <split-merge></split-merge>
+    <!-- 已完成 -->
+    <view v-show="tabCur === 1">
+      <view>
+        <view
+          class="list-item"
+          v-for="(item, index) in dataList2"
+          @click="toDetail(item)"
+          :key="index"
+        >
+          <view class="text-box">
+            <text>{{ item.home }}</text>
+            <text>{{ item.name }}</text>
+            <text>{{ item.level }}</text>
+            <text>{{ item.age }}</text>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </template>
 
 <script>
 import segmented from '@/components/segmented/segmented.vue'
-import finished from '@/pages/splitWrap/finished.vue'
-import split from '@/pages/splitWrap/split.vue'
-import splitMerge from '@/pages/splitWrap/splitMerge.vue'
 export default {
   components: {
     segmented,
-    finished,
-    split,
-    splitMerge
   },
   data() {
     return {
-      itemsTab: ['拆分', '合包'],
+      itemsTab: ['未完成', '已完成'],
       tabCur: 0,
+      dataList2: [
+        {
+          id: 0,
+          name: "制单人:王五",
+          home: "到货时间:2012-12-12",
+          level: "制单时间:2012-12-12",
+          age: "顺达广州机械公司",
+          subtotal: "23",
+          numberBox: "到货单号:DH12312312312312312",
+          checked: false,
+        },
+      ],
       dataList: [
         {
           id: 0,
@@ -68,33 +97,27 @@ export default {
           checked: false,
         },
       ],
-      path: '/pages/receiveMatter/sendMatterList',
-      tag: 0
+      path: '/pages/produceInWarehouse/notFinished',
+      path2: '/pages/produceInWarehouse/finished'
     }
   },
   computed: {
   },
   methods: {
     goTabCur(tabCur) {
-      // uni.setNavigationBarTitle({
-      //   title: 'xx'
-      // });
       this.tabCur = tabCur
 
     },
-    inputData(val) {
-      console.log(val);
-    },
-    checkedId(val) {
-      console.log(val);
-    },
     toDetail(item) {
-      this.toPage(this.path)
+      console.log(this.tabCur);
+      if (this.tabCur == 1) {
+        this.toPage(this.path2)
+      } else {
+        this.toPage(this.path)
+      }
+      console.log(item);
+
     },
-  },
-  onLoad: function (option) {
-    console.log(option.tag);
-    this.tag = option.tag
   }
 }
 </script>

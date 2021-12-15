@@ -11,40 +11,26 @@
             <text>{{ item.level }}</text>
             <text>{{ item.age }}</text>
           </view>
-          <view class="item-checkbox">
-            拆分类型:
-            <view class="box-radio">
-              <uni-data-checkbox v-model="value" :localdata="sex" @change="change" />
-            </view>
-          </view>
-          <view class="item-input">
-            <text>实收:</text>
-            <view class="input-border"
-              ><input
-                type="digit"
-                maxlength="10"
-                :value="item.id"
-                v-model="inputData[index]"
-                placeholder="请输入"
-            /></view>
-            <text>PCS</text>
-          </view>
         </view>
       </view>
     </view>
-
-    <view class="submit-box">
-      <button type="primary" @click="settlement">拆分</button>
+    <view class="box-bottom-sum">
+      <text>合计:100个</text>
     </view>
+    <bottom-button-save @onChange="onSubmit">
+      <text slot="one">返回</text>
+      <text slot="two">合并</text>
+    </bottom-button-save>
   </view>
 </template>
 
 <script>
 import scanInput from '@/components/scanInput/scan-input.vue'
-
+import bottomButtonSave from "@/components/button/bottom-button-save.vue";
 export default {
   components: {
-    scanInput
+    scanInput,
+    bottomButtonSave
   },
   data() {
     return {
@@ -78,35 +64,17 @@ export default {
       this.$set(this.inputData, index, '')
     },
     change(e) {
-      console.log(this.value)
+      console.log(e)
     },
-    //单选
-    changeitem(item) {
-      item.checked = !item.checked;
-      if (!item.checked) {
-        this.allChecked = false;
-      } else {
-        // 判断每一个商品是否是被选择的状态
-        const cartList = this.goodList.every((item) => {
-          return item.checked === true;
-        });
-        if (cartList) {
-          this.allChecked = true;
-        } else {
-          this.allChecked = false;
-        }
+
+    onSubmit(val) {
+      console.log(val)
+      if (val == 1) {
+        uni.navigateBack({
+          delta: 1
+        })
       }
-    },
-    settlement() {
-      this.checkList = [];
-      // this.goodList.map((item) => {
-      //   if (item.checked) {
-      //     return this.checkList.push(item.id);
-      //   }
-      // });
-      let tag = this.value
-      let path = '/pages/splitWrap/splitMerge?tag=' + tag;
-      this.toPage(path)
+
     },
   },
   props: {
@@ -118,7 +86,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .main {
   padding-bottom: 180rpx;
   .list-item {
@@ -139,31 +107,12 @@ export default {
         padding: 2rpx 0;
       }
     }
-    .item-checkbox {
-      display: flex;
-      align-items: baseline;
-      .box-radio {
-        padding-left: 20rpx;
-      }
-    }
-    .item-input {
-      padding: 10rpx 0 15rpx 0;
-      display: flex;
-      align-items: baseline;
-      .input-border {
-        border-style: solid;
-        border-width: 1rpx;
-        border-radius: 10rpx;
-        border-color: rgb(207, 203, 203);
-        width: 220rpx;
-      }
-    }
   }
-}
-.submit-box {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
+  .box-bottom-sum {
+    width: 100%;
+    position: fixed;
+    bottom: 150rpx;
+  }
 }
 </style>
 

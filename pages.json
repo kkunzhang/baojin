@@ -166,11 +166,53 @@
         "enablePullDownRefresh": true,
         "navigationBarTitleText": "拆分合包"
       }
+    },
+    {
+      "path": "pages/splitWrap/splitMerge",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "拆分合包"
+      }
+    },
+    {
+      "path": "pages/unusualToMake/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "入库"
+      }
+    },
+    {
+      "path": "pages/shiftMatter/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "打印标签"
+      }
+    },
+    {
+      "path": "pages/shiftMatter/waitPrint/waitPrintDetail",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "打印标签"
+      }
+    },
+    {
+      "path": "pages/shiftMatter/waitConfirm/waitConfirmDetail",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "打印标签"
+      }
+    },
+    {
+      "path": "pages/printBarCode/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "打印标签"
+      }
     }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#ffffff",
     "app-plus": {
