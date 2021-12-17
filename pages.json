@@ -208,6 +208,48 @@
         "enablePullDownRefresh": true,
         "navigationBarTitleText": "打印标签"
       }
+    },
+    {
+      "path": "pages/badGoodsInWarehouse/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "不良品入库"
+      }
+    },
+    {
+      "path": "pages/badGoodsMoveWarehouse/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "不良品移库"
+      }
+    },
+    {
+      "path": "pages/makeBad/index",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "报废申请"
+      }
+    },
+    {
+      "path": "pages/makeBad/warehouse/detail",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "报废入库"
+      }
+    },
+    {
+      "path": "pages/makeBad/warehouse/add",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "报废申请"
+      }
+    },
+    {
+      "path": "pages/makeBad/productLine/detail",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "报废入库"
+      }
     }
   ],
   "globalStyle": {

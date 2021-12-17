@@ -131,20 +131,20 @@ export default {
       ColorList2: [{
         title: '不良品入库',
         name: 'cuIcon-emoji',
-        color: '#e54d42',
-        path: '/pages/arriveGoods/index'
+        color: '#a5673f',
+        path: '/pages/badGoodsInWarehouse/index'
       },
       {
         title: '报废',
         name: 'cuIcon-emoji',
-        color: '#f37b1d',
-        path: '/pages/produceInWarehouse/index'
+        color: '#a5673f',
+        path: '/pages/makeBad/index'
       },
       {
         title: '不良品移库',
         name: 'cuIcon-emoji',
-        color: '#fbbd08',
-        path: '/pages/returnMatter/index'
+        color: '#a5673f',
+        path: '/pages/badGoodsMoveWarehouse/index'
       },
       ],
       isShow: true
