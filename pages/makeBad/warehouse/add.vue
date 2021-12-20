@@ -1,14 +1,22 @@
 <template>
   <view>
     <scan-input @picker="onGetpicker"></scan-input>
-    <data-list
-      :hasTitle="isCheckbox"
-      :dataList="goodList"
-    ></data-list>
-   
+    <data-list :hasTitle="isCheckbox" :dataList="goodList"></data-list>
+    <view class="item" @tap="selectorVisible = true">单列选择</view>
+    <view class="result">选择结果：{{ result.result }}</view>
+    <w-picker
+      :visible.sync="selectorVisible"
+      mode="selector"
+      value="女"
+      default-type="name"
+      :default-props="defaultProps"
+      :options="selectorList"
+      @confirm="onConfirm($event, 'selector')"
+      @cancel="onCancel"
+      ref="selector"
+    ></w-picker>
     <view class="submit-box">
-       <bottom-picker  v-if="pickerShow"></bottom-picker>
-      <button type="primary" @click="onClick">提交</button>
+      <button type="primary">提交222</button>
     </view>
   </view>
 </template>
@@ -16,18 +24,35 @@
 <script>
 import dataList from "@/components/dataList/data-list.vue";
 import scanInput from "@/components/scanInput/scan-input.vue";
-import bottomPicker from "@/components/bottom-picker/bottom-picker.vue";
 import bottomButtonSave from "@/components/button/bottom-button-save.vue";
+import wPicker from "@/components/w-picker/w-picker.vue";
 export default {
   components: {
     dataList,
     scanInput,
-    bottomPicker,
     bottomButtonSave,
+    wPicker
   },
   data() {
     return {
       pickerShow: "false",
+      selectorVisible: false,
+      result: {
+        result: ""
+      },
+      defaultProps: {
+        label: "name",
+        value: "id"
+      },
+      selectorList: [
+        {
+          name: "男",
+          id: "1"
+        }, {
+          name: "女",
+          id: "2"
+        }
+      ],
       goodList: [
         {
           id: 0,
@@ -69,6 +94,13 @@ export default {
   },
   computed: {},
   methods: {
+    onConfirm(res, type) {
+      this.result = res;
+      console.log(res)
+    },
+    onCancel() {
+
+    },
     //单选
     changeitem(item) {
       item.checked = !item.checked;
@@ -91,9 +123,12 @@ export default {
       this.pickerShow = true;
     },
     onClick() {
-      
+
       console.log(this.checkList, "this.checkList");
     },
+  },
+  onReady() {
+    this.$refs.selector.show()
   },
   props: {
     tabCur: {

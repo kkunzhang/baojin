@@ -1,5 +1,5 @@
 <template>
-  <form class="loginView" @submit="bindLogin">
+  <form class="loginView" @submit="formSubmit">
     <view>
       <image class="bg-img" src="@/static/imgs/bg.jpg" />
     </view>
@@ -12,7 +12,7 @@
         v-model="username"
         type="text"
         placeholder="请输入用户名"
-        name="nameValue"
+        name="username"
       />
       <uni-text @click="username = ''" class="cuIcon-roundclosefill close-icon"></uni-text>
     </view>
@@ -20,18 +20,11 @@
       <view class="label-view">
         <text class="label">密码</text>
       </view>
-      <input
-        class="input"
-        v-model="password"
-        password
-        placeholder="请输入密码"
-        name="passwordValue"
-      />
+      <input class="input" v-model="password" password placeholder="请输入密码" name="password" />
       <uni-text @click="password = ''" class="cuIcon-roundclosefill close-icon"></uni-text>
     </view>
-    <view class="button-view">
-      <button type="primary" :loading="loading" class="login" formType="submit">登录</button>
-    </view>
+
+    <button type="primary" :loading="loading" class="login" formType="submit">登录</button>
   </form>
 </template>
 
@@ -39,7 +32,7 @@
 import {
   mapMutations
 } from 'vuex';
-
+import graceChecker from "../../common/graceChecker.js"
 export default {
   data() {
     return {
@@ -49,73 +42,37 @@ export default {
     }
   },
   methods: {
-    bindLogin(e) {
-      let url = '/pages/home/home'
-      uni.navigateTo({
-        url
-      });
-      console.log(e);
-      // this.loading = true;
-      let name = e.detail.value.nameValue,
-        password = e.detail.value.passwordValue;
+    formSubmit(e) {
+      console.log(process.uniEnv.BASE_API)
 
-      // if (!/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/.test(name)) {
-      //     this.loading = false;
-      //     uni.showModal({
-      //         content: "请输入正确邮箱",
-      //         showCancel: false
-      //     })
-      //     return;
-      // }
-
-      // if (password.length < 6) {
-      //     this.loading = false;
-      //     uni.showModal({
-      //         content: "密码大于5位",
-      //         showCancel: false
-      //     })
-      //     return;
-      // }
-
-      //           uni.request({
-      //               url: `${this.$serverUrl}/login.php`,
-      //               header: {
-      //                   "Content-Type": "application/x-www-form-urlencoded"
-      //               },
-      //               data: {
-      //                   "username": name,
-      //                   "password": password
-      //               },
-      //               method: "POST",
-      //               success: (e) => {
-      // console.log(66,e)
-      //                   if (e.statusCode !== 200) {
-      //                       uni.showModal({
-      //                           content: "用户名密码错误！",
-      //                           showCancel: false
-      //                       });
-      //                       return;
-      //                   }
-      //                   if (e.data.code === 0) {
-      //                       this.login(e.data);
-      //                       uni.navigateBack();
-      //                   } else {
-      //                       uni.showModal({
-      //                           content: e.data.message,
-      //                           showCancel: false
-      //                       })
-      //                   }
-      //               },
-      //               fail: (e) => {
-      //                   uni.showModal({
-      //                       content: "请求失败，请重试！",
-      //                       showCancel: false
-      //                   })
-      //               },
-      //               complete: () => {
-      //                   this.loading = false;
-      //               }
-      //           })
+      //定义表单规则
+      var rule = [
+        { name: "username", checkType: "notnull", errorMsg: "请输入用户名" },
+        { name: "username", checkType: "string", checkRule: "1,10", errorMsg: "姓名应为1-10个字符" },
+        { name: "password", checkType: "notnull", checkRule: "1,20", errorMsg: "请输入密码" },
+      ];
+      //进行表单检查
+      var formData = e.detail.value;
+      var checkRes = graceChecker.check(formData, rule);
+      this.toLogin(formData)
+      if (checkRes) {
+        this.toLogin(formData)
+      } else {
+        // uni.showToast({ title: graceChecker.error, icon: "none" });
+      }
+    },
+    async toLogin(formData) {
+      const params = {
+        "username": formData.username,
+        "password": formData.password
+      }
+      // const data = await this.$api.login.login(params)
+      console.log(this.$api.login1(params))
+      // this.login(data);
+      // let url = '/pages/home/home'
+      // uni.navigateTo({
+      //   url
+      // });
     },
     ...mapMutations(['login'])
   }
@@ -126,7 +83,6 @@ export default {
 view {
   display: flex;
 }
-
 .loginView {
   display: flex;
   flex: 1;
@@ -145,10 +101,9 @@ view {
   border-top-width: 3upx;
   border-top-color: #ddd;
   flex-direction: row;
-  width: 700upx;
-  /* padding: 30upx 20upx; */
+  width: 700rpx;
   box-sizing: border-box;
-  margin: 50upx 0upx 20upx 20upx;
+  margin: 50upx 0upx 40upx 20upx;
 }
 
 .label-view {
@@ -176,32 +131,12 @@ view {
   font-weight: 500;
   color: #333333;
 }
-
 .input {
   flex: 1;
   height: 60upx;
   font-size: 34upx;
   align-items: center;
   margin-top: 40upx;
-}
-
-.button-view {
-  width: 750upx;
-  padding: 0 20upx;
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  width: 710upx;
-  height: 100upx;
-  line-height: 100upx;
-  text-align: center;
-  font-size: 34upx;
-  margin-bottom: 30upx;
-  margin-top: 20upx;
 }
 .getPassword {
   color: #888888;

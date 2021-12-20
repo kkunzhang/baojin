@@ -12,6 +12,10 @@ Vue.component(Actionsheet.name, Actionsheet);
 Vue.use(MintUI);
 import uView from '@/uni_modules/uview-ui';
 Vue.use(uView);
+import './env.js';
+
+import api from '@/api/index';
+Vue.prototype.$api = api;
 
 import { toPage } from '@/common/utils';
 Vue.prototype.toPage = toPage;
